@@ -9,8 +9,6 @@ namespace WindowsInput
     /// </summary>
     public class MouseSimulator : IMouseSimulator
     {
-        private const int MouseWheelClickSize = 120;
-
         private readonly IInputSimulator _inputSimulator;
 
         /// <summary>
@@ -271,7 +269,7 @@ namespace WindowsInput
         /// <param name="scrollAmountInClicks">The amount to scroll in clicks. A positive value indicates that the wheel was rotated forward, away from the user; a negative value indicates that the wheel was rotated backward, toward the user.</param>
         public IMouseSimulator VerticalScroll(int scrollAmountInClicks)
         {
-            var inputList = new InputBuilder().AddMouseVerticalWheelScroll(scrollAmountInClicks * MouseWheelClickSize).ToArray();
+            var inputList = new InputBuilder().AddMouseVerticalWheelScroll(scrollAmountInClicks).ToArray();
             SendSimulatedInput(inputList);
             return this;
         }
@@ -282,7 +280,7 @@ namespace WindowsInput
         /// <param name="scrollAmountInClicks">The amount to scroll in clicks. A positive value indicates that the wheel was rotated to the right; a negative value indicates that the wheel was rotated to the left.</param>
         public IMouseSimulator HorizontalScroll(int scrollAmountInClicks)
         {
-            var inputList = new InputBuilder().AddMouseHorizontalWheelScroll(scrollAmountInClicks * MouseWheelClickSize).ToArray();
+            var inputList = new InputBuilder().AddMouseHorizontalWheelScroll(scrollAmountInClicks).ToArray();
             SendSimulatedInput(inputList);
             return this;
         }
