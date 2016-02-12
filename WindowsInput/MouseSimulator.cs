@@ -266,10 +266,10 @@ namespace WindowsInput
         /// <summary>
         /// Simulates mouse vertical wheel scroll gesture.
         /// </summary>
-        /// <param name="scrollAmountInClicks">The amount to scroll in clicks. A positive value indicates that the wheel was rotated forward, away from the user; a negative value indicates that the wheel was rotated backward, toward the user.</param>
-        public IMouseSimulator VerticalScroll(int scrollAmountInClicks)
+        /// <param name="scrollAmountInUnits">The amount to scroll in clicks. A positive value indicates that the wheel was rotated forward, away from the user; a negative value indicates that the wheel was rotated backward, toward the user.</param>
+        public IMouseSimulator VerticalScroll(int scrollAmountInUnits)
         {
-            var inputList = new InputBuilder().AddMouseVerticalWheelScroll(scrollAmountInClicks).ToArray();
+            var inputList = new InputBuilder().AddMouseVerticalWheelScroll(scrollAmountInUnits).ToArray();
             SendSimulatedInput(inputList);
             return this;
         }
@@ -277,10 +277,10 @@ namespace WindowsInput
         /// <summary>
         /// Simulates a mouse horizontal wheel scroll gesture. Supported by Windows Vista and later.
         /// </summary>
-        /// <param name="scrollAmountInClicks">The amount to scroll in clicks. A positive value indicates that the wheel was rotated to the right; a negative value indicates that the wheel was rotated to the left.</param>
-        public IMouseSimulator HorizontalScroll(int scrollAmountInClicks)
+        /// <param name="scrollAmountInUnits">The amount to scroll in clicks. A positive value indicates that the wheel was rotated to the right; a negative value indicates that the wheel was rotated to the left.</param>
+        public IMouseSimulator HorizontalScroll(int scrollAmountInUnits)
         {
-            var inputList = new InputBuilder().AddMouseHorizontalWheelScroll(scrollAmountInClicks).ToArray();
+            var inputList = new InputBuilder().AddMouseHorizontalWheelScroll(scrollAmountInUnits).ToArray();
             SendSimulatedInput(inputList);
             return this;
         }
